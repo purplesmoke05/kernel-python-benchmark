@@ -1,0 +1,45 @@
+docker run -it benchmark strace -fc python /app/benchmark/cpu.py
+strace: Process 10 attached
+strace: Process 11 attached
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 36.33    0.004016        1338         3           wait4
+ 19.64    0.002171           5       386        44 newfstatat
+  7.41    0.000819           7       110        33 openat
+  5.57    0.000616           6        98           read
+  5.19    0.000574           8        66           rt_sigaction
+  4.80    0.000531           6        88           close
+  4.53    0.000501           8        58           mmap
+  4.01    0.000443           4        92         3 lseek
+  3.09    0.000342          15        22           getdents64
+  2.15    0.000238           4        49        42 ioctl
+  1.76    0.000194          97         2           clone
+  1.05    0.000116           8        13           mprotect
+  0.97    0.000107           5        21           brk
+  0.43    0.000047           7         6           write
+  0.42    0.000046           7         6           rename
+  0.34    0.000038           4         8         5 readlink
+  0.30    0.000033          16         2           munmap
+  0.29    0.000032           8         4           fcntl
+  0.28    0.000031           3        10           getpid
+  0.20    0.000022           7         3           getrandom
+  0.15    0.000017           4         4           pipe2
+  0.14    0.000015           5         3           set_robust_list
+  0.12    0.000013           6         2           prlimit64
+  0.10    0.000011          11         1           arch_prctl
+  0.09    0.000010           5         2           pread64
+  0.08    0.000009           9         1           futex
+  0.08    0.000009           9         1           set_tid_address
+  0.08    0.000009           9         1         1 rseq
+  0.07    0.000008           1         6           gettid
+  0.05    0.000006           6         1           sysinfo
+  0.05    0.000006           6         1           getuid
+  0.05    0.000006           6         1           getgid
+  0.05    0.000006           6         1           geteuid
+  0.05    0.000006           6         1           getegid
+  0.05    0.000006           6         1           epoll_create1
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1           getcwd
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.011054          10      1077       129 total

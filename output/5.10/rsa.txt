@@ -1,0 +1,48 @@
+docker run --cap-add=SYS_PTRACE -it --cpus="1" benchmark strace -fc python /app/benchmark/rsa.py 60
+strace: Process 10 attached
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 35.90    0.003947           0     13471           getrandom
+ 24.49    0.002692           2      1130       117 newfstatat
+  8.17    0.000898           3       288           read
+  7.32    0.000805           2       321        75 openat
+  4.91    0.000540           2       248         5 lseek
+  4.84    0.000532           2       253           close
+  3.47    0.000381           1       212           mmap
+  2.33    0.000256           2       126       119 ioctl
+  1.90    0.000209          20        10           mkdir
+  1.77    0.000195           4        46           getdents64
+  1.06    0.000116           1        79           brk
+  0.74    0.000081           1        48           mprotect
+  0.73    0.000080           1        48           rename
+  0.60    0.000066           1        50           write
+  0.49    0.000054           1        37           munmap
+  0.40    0.000044          44         1           vfork
+  0.34    0.000037           4         9         5 readlink
+  0.22    0.000024          12         2           pipe2
+  0.13    0.000014           4         3           rt_sigprocmask
+  0.11    0.000012          12         1           wait4
+  0.09    0.000010          10         1           uname
+  0.00    0.000000           0       129           rt_sigaction
+  0.00    0.000000           0         2           pread64
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         6           mremap
+  0.00    0.000000           0         3           dup2
+  0.00    0.000000           0         2           execve
+  0.00    0.000000           0         4           fcntl
+  0.00    0.000000           0         1           sysinfo
+  0.00    0.000000           0         1           getuid
+  0.00    0.000000           0         1           getgid
+  0.00    0.000000           0         1           geteuid
+  0.00    0.000000           0         1           getegid
+  0.00    0.000000           0         2           arch_prctl
+  0.00    0.000000           0         2           gettid
+  0.00    0.000000           0         1           futex
+  0.00    0.000000           0         2           set_tid_address
+  0.00    0.000000           0         2           set_robust_list
+  0.00    0.000000           0         1           epoll_create1
+  0.00    0.000000           0         2           prlimit64
+  0.00    0.000000           0         2           rseq
+  0.00    0.000000           0         2           close_range
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.010993           0     16552       322 total

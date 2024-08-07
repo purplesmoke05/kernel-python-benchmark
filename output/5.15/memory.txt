@@ -1,0 +1,36 @@
+docker run -it benchmark strace -fc python /app/benchmark/memory.py
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 96.47    0.035225       11741         3           munmap
+  0.85    0.000310           2       110        35 newfstatat
+  0.70    0.000257           3        66           rt_sigaction
+  0.47    0.000170           2        72           mremap
+  0.31    0.000112           8        14           getdents64
+  0.21    0.000078           3        24         3 lseek
+  0.21    0.000076           1        48        27 openat
+  0.16    0.000059           2        21           read
+  0.16    0.000058           4        12           brk
+  0.15    0.000054           2        21           close
+  0.15    0.000054           3        14         7 ioctl
+  0.05    0.000018           2         8         5 readlink
+  0.04    0.000013           0        25           mmap
+  0.04    0.000013           3         4           fcntl
+  0.01    0.000004           4         1           getuid
+  0.01    0.000004           4         1           getgid
+  0.01    0.000004           4         1           geteuid
+  0.01    0.000004           4         1           getegid
+  0.00    0.000000           0         5           mprotect
+  0.00    0.000000           0         2           pread64
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1           sysinfo
+  0.00    0.000000           0         1           arch_prctl
+  0.00    0.000000           0         1           gettid
+  0.00    0.000000           0         1           futex
+  0.00    0.000000           0         1           set_tid_address
+  0.00    0.000000           0         1           set_robust_list
+  0.00    0.000000           0         1           prlimit64
+  0.00    0.000000           0         2           getrandom
+  0.00    0.000000           0         1           rseq
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.036513          78       465        78 total

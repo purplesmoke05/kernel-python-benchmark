@@ -1,0 +1,36 @@
+docker run -it benchmark strace -fc python /app/benchmark/memory.py
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 91.16    0.028025        9341         3           munmap
+  2.18    0.000671           6       110        35 newfstatat
+  0.92    0.000283           4        66           rt_sigaction
+  0.77    0.000236           4        48        27 openat
+  0.71    0.000218           8        25           mmap
+  0.63    0.000193           2        72           mremap
+  0.61    0.000186          13        14           getdents64
+  0.59    0.000182           8        21           read
+  0.54    0.000166           7        21           close
+  0.53    0.000164           6        24         3 lseek
+  0.27    0.000082          16         5           mprotect
+  0.26    0.000079           5        14         7 ioctl
+  0.24    0.000073           6        12           brk
+  0.15    0.000046           5         8         5 readlink
+  0.07    0.000021          10         2           pread64
+  0.07    0.000020           5         4           fcntl
+  0.04    0.000013           6         2           getrandom
+  0.04    0.000011          11         1           gettid
+  0.04    0.000011          11         1         1 rseq
+  0.03    0.000009           9         1           arch_prctl
+  0.03    0.000009           9         1           set_tid_address
+  0.03    0.000009           9         1           set_robust_list
+  0.03    0.000009           9         1           prlimit64
+  0.02    0.000006           6         1           sysinfo
+  0.02    0.000005           5         1           getegid
+  0.01    0.000004           4         1           getuid
+  0.01    0.000004           4         1           getgid
+  0.01    0.000004           4         1           geteuid
+  0.01    0.000003           3         1           futex
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.030742          66       465        79 total
