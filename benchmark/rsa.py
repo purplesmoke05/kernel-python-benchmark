@@ -1,3 +1,4 @@
+import multiprocessing
 import time
 import base64
 from Crypto.Cipher import PKCS1_OAEP
@@ -16,7 +17,14 @@ def rsa_stress_test(duration=10):
 
 
 def main(duration=10):
-    rsa_stress_test(duration=duration)
+    processes = []
+    for _ in range(multiprocessing.cpu_count()):
+        p = multiprocessing.Process(target=rsa_stress_test, args=(duration,))
+        processes.append(p)
+        p.start()
+
+    for p in processes:
+        p.join()
 
 
 if __name__ == "__main__":
